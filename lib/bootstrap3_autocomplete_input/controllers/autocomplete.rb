@@ -39,8 +39,8 @@ module Bootstrap3AutocompleteInput
             method_display_id = options[:display_id] if options.has_key?(:display_id)
             method_display_id ||= model.primary_key
 
-            data = items_to_json(items, method_display_id, method_display_value)
-            render :json => data.to_json
+            
+            render :json => items.to_json
           end
         end
       end
@@ -56,12 +56,6 @@ module Bootstrap3AutocompleteInput
         object = model_sym.to_s.camelize.constantize
       end
 
-      #
-      # Returns an array of [id, name]
-      #
-      def items_to_json(items, method_display_id, method_display_value)
-        items.to_json
-      end
     end
 
   end
